@@ -23,9 +23,6 @@ def word_count(file):
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.readlines()
-        
-        # for line in file_contents:
-        #     print(line)
 
         print(f"There are {word_count(file_contents)} words in the book")
 
