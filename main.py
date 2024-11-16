@@ -1,3 +1,15 @@
+def print_report(file):
+    
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"There are {word_count(file)} words in the book\n")
+        
+    sorted_letter_dict = sorted(letter_count(file).items(), key=lambda x:x[1], reverse=True)
+    for letter, count in dict(sorted_letter_dict).items():
+        print(f"The {letter} character was found {count} times")
+
+    print("--- End report ---")
+
+
 def letter_count(file):
     letter_dict = {}
 
@@ -44,10 +56,6 @@ def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.readlines()
 
-        print(f"There are {word_count(file_contents)} words in the book")
-        
-        sorted_letter_dict = sorted(letter_count(file_contents).items(), key=lambda x:x[1], reverse=True)
-        for letter, count in dict(sorted_letter_dict).items():
-            print(f"The {letter} character was found {count} times")
+        print_report(file_contents)
 
 main()
