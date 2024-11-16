@@ -46,7 +46,8 @@ def main():
 
         print(f"There are {word_count(file_contents)} words in the book")
         
-        for letter, count in letter_count(file_contents).items():
+        sorted_letter_dict = sorted(letter_count(file_contents).items(), key=lambda x:x[1], reverse=True)
+        for letter, count in dict(sorted_letter_dict).items():
             print(f"The {letter} character was found {count} times")
 
 main()
